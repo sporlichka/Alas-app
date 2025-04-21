@@ -20,13 +20,13 @@ User Account: View order history and edit profile information.
 
 Admin Panel: Manage products, orders, and users.
 
-API: Backend powered by Node.js (NestJS/Express) with a PostgreSQL/MySQL database.
+API: Backend powered by Django with a database.
 
 Technologies:
 Frontend: Angular, TypeScript, SCSS, Bootstrap/Tailwind.
 
-Backend: Node.js (NestJS/Express), REST API.
+Backend: Django, REST API.
 
 Database: PostgreSQL/MySQL.
 
-Authentication: JWT/Passport.js
+Authentication: JWT
