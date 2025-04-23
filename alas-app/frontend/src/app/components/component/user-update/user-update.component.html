@@ -1,0 +1,148 @@
+<h1 class="text-3xl font-bold text-center text-gray-900 mt-8 mb-8 p-1">
+  User Information
+</h1>
+
+<section class="bg-white border">
+  <div class="lg:grid lg:min-h-screen lg:grid-cols-12 lg:min-h-">
+    <section
+      class="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-2/3 xl:col-span-6"
+    >
+      <img
+        alt=""
+        src="https://img.freepik.com/fotos-premium/zapatillas-deporte-neon-ligeras-son-forma-moderna-elegante-hacer-declaracion-son-perfectas-fiestas-clubes_1030265-2124.jpg"
+        class="absolute inset-0 h-full w-full object-cover opacity-80 rounded-lg overflow-hidden border-2 border-gray-300 shadow-lg"
+      />
+    </section>
+
+    <main
+      class="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:h-2/3 lg:px-16 lg:py-12 xl:col-span-6 border border-gray-500 rounded-lg shadow-lg p-1"
+    >
+      <div class="max-w-xl lg:max-w-3xl">
+        <h1
+          class="mt-2 text-center text-xl font-bold text-gray-900 sm:text-2xl md:text-3xl"
+        >
+          Confirm your Information
+        </h1>
+        <form
+          [formGroup]="updateForm"
+          (ngSubmit)="onSubmit()"
+          class="mt-8 grid grid-cols-6 gap-6"
+        >
+          <div class="col-span-6 sm:col-span-3 form-group">
+            <label
+              for="identification_number"
+              class="block text-sm font-medium text-gray-700"
+            >
+              Identification Number:
+            </label>
+            <input
+              type="text"
+              id="identification_number"
+              formControlName="identification_number"
+              class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+            />
+            @if (identification_number && identification_number.invalid &&
+            (identification_number.dirty || identification_number.touched)) {
+            <div class="alert alert-danger">
+              @if (identification_number.errors?.['required']) {
+              <div>Identification Number is a required field.</div>
+              } @if (identification_number.errors?.['pattern']) {
+              <div>
+                The identification number must be between 6 and 10 characters
+                long.
+              </div>
+              }
+            </div>
+            }
+          </div>
+
+          <div class="col-span-6 sm:col-span-3">
+            <label for="phone" class="block text-sm font-medium text-gray-700">
+              Phone:
+            </label>
+
+            <input
+              type="text"
+              id="phone"
+              formControlName="phone"
+              class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+            />
+            @if (phone && phone.invalid && (phone.dirty || phone.touched)) {
+            <div class="alert alert-danger">
+              @if (phone.errors?.['required']) {
+              <div>Phone is a required field..</div>
+              } @if (phone.errors?.['pattern']) {
+              <div>The phone number must have 10 digits, e.g., 3512543876.</div>
+              }
+            </div>
+            }
+          </div>
+
+          <div class="col-span-6">
+            <label for="adress" class="block text-sm font-medium text-gray-700">
+              Adress
+            </label>
+
+            <input
+              type="adress"
+              id="adress"
+              formControlName="adress"
+              class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+            />
+            @if (adress && adress.invalid && (adress.dirty || adress.touched)) {
+            <div class="alert alert-danger">
+              @if (adress.errors?.['required']) {
+              <div>Address is a required field.</div>
+              } @if (adress.errors?.['minlength'] ||
+              adress.errors?.['maxlength']) {
+              <div>The address must be between 3 and 50 characters long.</div>
+              }
+            </div>
+            }
+          </div>
+
+          <div class="col-span-6">
+            <label for="MarketingAccept" class="flex gap-4">
+              <input
+                type="checkbox"
+                id="MarketingAccept"
+                formControlName="marketing_accept"
+                class="size-5 rounded-md border-gray-200 bg-white shadow-sm accent-black"
+              />
+
+              <span class="text-sm text-gray-700">
+                My Information is real
+              </span>
+              @if (marketing_accept && marketing_accept.invalid &&
+              (marketing_accept.dirty || marketing_accept.touched)) {
+              <div class="text-red-500 text-sm">
+                @if (marketing_accept.errors?.['required']) {
+                <div>You must accept.</div>
+                }
+              </div>
+              }
+            </label>
+          </div>
+
+          <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
+            <button
+              type="submit"
+              class="block rounded border bg-black border-gray-600 px-5 py-3 text-sm transition hover:bg-red-700 focus:outline-none focus:ring focus:ring-yellow-400 font-medium tracking-wide text-white"
+              [disabled]="!updateForm.valid"
+            >
+              Update
+            </button>
+
+            <p class="mt-4 text-sm text-gray-500 sm:mt-0">
+              Your Information is correct?
+
+              <a routerLink="/home" class="text-gray-700 underline"
+                >Go Home Page</a
+              >.
+            </p>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+</section>

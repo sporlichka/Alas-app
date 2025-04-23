@@ -1,0 +1,56 @@
+<section class="bg-gray-100">
+  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+    <h1 class="text-3xl font-bold text-center text-gray-900 p-1">
+      Manage Deliveries
+    </h1>
+    <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      @for (delivery of deliveries; track $index) {
+      <li
+        class="group block overflow-hidden bg-white rounded-lg shadow-md transition duration-500 transform hover:scale-105"
+      >
+        <div class="p-4">
+          <h3 class="text-sm font-medium text-gray-700 group-hover:underline">
+            Tracking: {{ delivery.tracking_number }}
+          </h3>
+          <p class="mt-2 text-sm text-gray-900">
+            Purchase ID: {{ delivery.purchase }}
+          </p>
+          <p class="mt-2 text-sm text-gray-900">
+            Address: {{ delivery.delivery_address }}
+          </p>
+          <p class="mt-2 text-sm text-gray-900">
+            Estimated Date: {{ delivery.estimated_date }}
+          </p>
+          <p class="mt-2 text-sm text-gray-900">
+            Status: {{ delivery.delivery_status }}
+          </p>
+
+          <label
+            for="status"
+            class="block mt-4 text-sm font-medium text-gray-700"
+            >Change Status:</label
+          >
+          <select
+            [(ngModel)]="delivery.delivery_status"
+            id="status"
+            class="border border-gray-300 rounded-md px-3 py-2 mt-2 w-full"
+          >
+            <option value="P">Pending</option>
+            <option value="T">In transit</option>
+            <option value="C">Completed</option>
+          </select>
+
+          <button
+            (click)="
+              updateDeliveryStatus(delivery.purchase, delivery.delivery_status)
+            "
+            class="mt-8 inline-block bg-black border border-gray-600 px-5 py-3 text-sm transition hover:bg-red-700 focus:outline-none focus:ring focus:ring-yellow-400 font-medium tracking-wide text-white"
+          >
+            Update Status
+          </button>
+        </div>
+      </li>
+      }
+    </ul>
+  </div>
+</section>

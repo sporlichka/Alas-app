@@ -1,0 +1,58 @@
+<div class="flex flex-wrap">
+  <section
+    class="relative border border-gray-300 bg-white w-full lg:w-3/5 my-10 mx-auto px-4 sm:px-6"
+  >
+    <img
+      [src]="product.image"
+      alt="product.model"
+      class="h-64 w-full object-contain sm:h-80 lg:h-90 mt-5"
+    />
+    <div class="p-6">
+      <span
+        class="inline-block bg-black px-4 py-2 text-xs font-medium text-white uppercase hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+      >
+        New
+      </span>
+      <h3 class="mt-4 text-lg font-semibold text-gray-900">
+        {{ product.model?.model }}
+      </h3>
+      <p class="mt-1.5 text-sm text-gray-700">{{ product.detail }}</p>
+      <p class="mt-1.5 text-sm text-gray-700">$ {{ product.price }}</p>
+
+      @if (isLogged && !isAdmin) {
+      <div class="mt-4 flex items-center gap-4">
+        <button
+          type="button"
+          class="bg-black px-4 py-2 text-xs font-medium text-white uppercase hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          (click)="addItemCart(product.id, quantity)"
+        >
+          Add to Cart
+        </button>
+        <div class="flex items-center border border-gray-200 rounded">
+          <button
+            type="button"
+            class="px-3 py-2 text-gray-600 hover:opacity-75 transition"
+            (click)="decrementQuantity()"
+          >
+            &minus;
+          </button>
+          <input
+            type="number"
+            [(ngModel)]="quantity"
+            value="1"
+            max="product.stock"
+            class="h-10 w-12 text-center text-sm border-transparent"
+          />
+          <button
+            type="button"
+            class="px-3 py-2 text-gray-600 hover:opacity-75 transition"
+            (click)="incrementQuantity()"
+          >
+            &plus;
+          </button>
+        </div>
+      </div>
+      }
+    </div>
+  </section>
+</div>

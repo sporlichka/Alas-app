@@ -1,0 +1,108 @@
+<div class="flex flex-col bg-gray-100 p-4 md:p-8 lg:p-12">
+  <h1
+    class="text-2xl md:text-3xl font-bold text-center text-gray-900 mt-8 mb-8"
+  >
+    Client Support
+  </h1>
+
+  <div class="bg-white border border-gray-300 p-4 rounded-lg shadow-md">
+    <h2 class="text-lg font-semibold mb-4">Conversations</h2>
+    <ul class="list-none p-0 m-0">
+      @for (conversation of conversations| orderBy:'created_at':true; track
+      $index) {
+      <li
+        class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-2 border-b border-gray-200"
+      >
+        <div class="flex-1">
+          <h3 class="text-sm font-medium">{{ conversation.name }}</h3>
+          <p class="text-xs text-gray-600">
+            User: {{ conversation.user.email }}
+          </p>
+          <p class="text-xs text-gray-600">
+            Created at: {{ conversation.created_at | date : "short" }}
+          </p>
+          <span class="ml-2 text-xs text-gray-600">
+            @if (conversation.open) {
+            <span class="bg-green-200 text-green-600 px-1 rounded">Open</span>}
+            @if (!conversation.open) {<span
+              class="bg-red-200 text-red-600 px-1 rounded"
+              >Closed</span
+            >}
+          </span>
+        </div>
+        <div class="flex items-center mt-2 sm:mt-0">
+          <button
+            (click)="selectConversation(conversation)"
+            class="bg-blue-500 text-white px-2 py-1 rounded mr-2 text-xs"
+          >
+            View
+          </button>
+          @if (conversation.open) {
+          <button
+            (click)="closeConversation(conversation.id)"
+            class="bg-yellow-500 text-white px-2 py-1 rounded mr-2 text-xs"
+          >
+            Close
+          </button>
+          }
+
+          <button
+            (click)="deleteConversation(conversation.id)"
+            class="bg-red-500 text-white px-2 py-1 rounded text-xs"
+          >
+            Delete
+          </button>
+        </div>
+      </li>
+      }
+    </ul>
+  </div>
+
+  @if (selectedConversation) {
+  <div class="mt-4">
+    <h2 class="text-lg font-semibold mb-2">
+      Messages in "{{ selectedConversation.name }}"
+    </h2>
+
+    <div class="bg-white border border-gray-300 p-4 rounded-lg shadow-md">
+      @if (!selectedConversation.open) {
+      <div class="text-center text-red-500 mb-4">
+        This conversation is closed.
+      </div>
+      } @if (messages.length === 0 && selectedConversation.open) {
+      <div class="text-center text-gray-500 mb-4">
+        No messages in this conversation.
+      </div>
+      } @for (message of messages | orderBy:'created_at':true; track $index) {
+      <div class="border-b border-gray-200 py-2">
+        <p class="text-sm font-medium">{{ message.sender.email }}</p>
+        <p class="text-sm">{{ message.content }}</p>
+        <p class="text-xs text-gray-600">
+          {{ message.created_at | date : "short" }}
+        </p>
+      </div>
+      }
+    </div>
+
+    @if (selectedConversation.open) {
+    <form
+      [formGroup]="messageForm"
+      (ngSubmit)="sendMessage($event)"
+      class="mt-4"
+    >
+      <textarea
+        formControlName="content"
+        rows="3"
+        class="w-full p-2 border border-gray-300 rounded"
+      ></textarea>
+      <button
+        type="submit"
+        class="mt-2 sm:mt-0 bg-black border-gray-600 px-5 py-3 text-sm transition hover:bg-red-700 focus:outline-none focus:ring focus:ring-yellow-400 font-medium tracking-wide text-white"
+      >
+        Send
+      </button>
+    </form>
+    }
+  </div>
+  }
+</div>

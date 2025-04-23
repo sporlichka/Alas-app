@@ -1,0 +1,140 @@
+<section class="bg-white">
+  <div class="lg:grid lg:min-h-screen lg:grid-cols-12">
+    <section
+      class="relative flex h-32 items-start bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6"
+    >
+      <img
+        alt=""
+        src="https://img.freepik.com/foto-gratis/ilustracion-calzado-deportivo-sobre-fondo-azul-generado-ia_188544-19603.jpg?w=1380&t=st=1720619846~exp=1720620446~hmac=c3c9abe9bd869c4c34ba10f563ad4725250fe2a24c598df070a98b49adff834d"
+        class="absolute inset-0 h-full w-full object-cover opacity-80"
+      />
+
+      <div class="hidden lg:relative lg:block lg:p-12">
+        <h2 class="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
+          Welcome to Full Store
+        </h2>
+
+        <p class="mt-4 leading-relaxed text-white/90">
+          Discover the latest in footwear fashion and find your perfect pair of
+          sneakers. Whether you're looking for the hottest brands or classic
+          styles, we have something for every taste. Explore our collection and
+          step up your shoe game today!
+        </p>
+      </div>
+    </section>
+
+    <main
+      class="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6"
+    >
+      <div class="max-w-xl lg:max-w-3xl">
+        <div class="relative -mt-16 block lg:hidden">
+          <a
+            class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl"
+            routerLink="/home"
+          >
+            <img
+              src="https://st3.depositphotos.com/1020091/12754/v/450/depositphotos_127542692-stock-illustration-tennis-sneaker-icon.jpg"
+              alt="Zapatilla"
+              class="h-16 w-16 rounded-full"
+            />
+          </a>
+
+          <h1
+            class="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl"
+          >
+            Welcome to Full Store
+          </h1>
+
+          <p class="mt-4 leading-relaxed text-gray-500">
+            Discover the latest in footwear fashion and find your perfect pair
+            of sneakers. Whether you're looking for the hottest brands or
+            classic styles, we have something for every taste. Explore our
+            collection and step up your shoe game today!
+          </p>
+        </div>
+
+        <form
+          [formGroup]="form"
+          (ngSubmit)="Userlogin($event)"
+          class="mt-8 grid grid-cols-6 gap-6 bg-white p-6 rounded-lg shadow-lg"
+        >
+          <div class="col-span-6">
+            <label for="email" class="block text-sm font-medium text-gray-700"
+              >Email:
+              <input
+                type="email"
+                id="email"
+                name="email"
+                formControlName="email"
+                class="mt-2 w-full rounded-md border-gray-300 bg-gray-100 text-sm text-gray-700 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 px-3 py-2"
+                placeholder="Email"
+                required
+              />
+              @if (email && email.invalid && (email.dirty || email.touched)) {
+              <div class="alert alert-danger">
+                @if (email.errors?.['required']) {
+                <div>Email is a required field.</div>
+                } @if (email.errors?.['email']) {
+                <div>The email format must be valid.</div>
+                }
+              </div>
+              }
+            </label>
+          </div>
+
+          <div class="col-span-6">
+            <label
+              for="password"
+              class="block text-sm font-medium text-gray-700"
+              >Password:
+              <input
+                type="password"
+                id="password"
+                name="password"
+                formControlName="password"
+                class="mt-2 w-full rounded-md border-gray-300 bg-gray-100 text-sm text-gray-700 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 px-3 py-2"
+                placeholder="Password"
+                required
+              />
+              @if (password && password.invalid && (password.dirty ||
+              password.touched)) {
+              <div class="alert alert-danger">
+                @if (password.errors?.['required']) {
+                <div>Password is a required field.</div>
+                } @if (password.errors?.['minlength'] ||
+                password.errors?.['maxlength']) {
+                <div>The password must be between 6 and 20 characters.</div>
+                }
+              </div>
+              }
+            </label>
+          </div>
+          <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
+            <p class="mt-4 text-sm text-gray-500 sm:mt-0">
+              Dont Remember your Password ?
+              <a routerLink="/reset-password" class="text-gray-700 underline"
+                >Recover</a
+              >.
+            </p>
+          </div>
+          <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
+            <button
+              type="submit"
+              [disabled]="!form.valid"
+              class="mt-1.5 inline-block bg-black px-5 py-3 text-xs hover:bg-red-700 focus:outline-none focus:ring focus:ring-yellow-400 font-medium uppercase tracking-wide text-white"
+            >
+              Log in
+            </button>
+
+            <p class="mt-4 text-sm text-gray-500 sm:mt-0">
+              Don't have an account?
+              <a routerLink="/register" class="text-gray-700 underline"
+                >Register</a
+              >.
+            </p>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+</section>

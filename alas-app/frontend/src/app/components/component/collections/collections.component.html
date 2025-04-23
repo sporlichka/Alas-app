@@ -1,0 +1,77 @@
+<section>
+  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+    <header class="text-center">
+      <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">
+        New Collections
+      </h2>
+    </header>
+
+    <ul class="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-3">
+      <li>
+        <a [routerLink]="'/products/brand/Nike'" class="group relative block">
+          <img
+            src="https://images.unsplash.com/photo-1618898909019-010e4e234c55?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+            alt=""
+            class="aspect-square w-full object-cover transition duration-500 group-hover:opacity-90"
+          />
+
+          <div
+            class="absolute inset-0 flex flex-col items-start justify-end p-6"
+          >
+            <h3 class="text-xl font-medium text-white">Nike</h3>
+
+            <span
+              class="mt-1.5 inline-block bg-black px-5 py-3 text-xs hover:bg-red-700 focus:outline-none focus:ring focus:ring-yellow-400 font-medium uppercase tracking-wide text-white"
+            >
+              Shop Now
+            </span>
+          </div>
+        </a>
+      </li>
+
+      <li>
+        <a [routerLink]="'/products/brand/Adidas'" class="group relative block">
+          <img
+            src="https://img.freepik.com/vector-gratis/par-zapatos-deportivos-cuero-fondo-madera_1284-17526.jpg?w=900&t=st=1720620657~exp=1720621257~hmac=c54e3f9e21413f0db3fe3127e02ce8b6b3e7d0461221f58b555d8b84f1500a21"
+            alt=""
+            class="aspect-square w-full object-cover transition duration-500 group-hover:opacity-90"
+          />
+
+          <div
+            class="absolute inset-0 flex flex-col items-start justify-end p-6"
+          >
+            <h3 class="text-xl font-medium text-white">Adidas</h3>
+
+            <span
+              class="mt-1.5 inline-block bg-black px-5 py-3 text-xs hover:bg-red-700 focus:outline-none focus:ring focus:ring-yellow-400 font-medium uppercase tracking-wide text-white"
+            >
+              Shop Now
+            </span>
+          </div>
+        </a>
+      </li>
+
+      <li class="lg:col-span-2 lg:col-start-2 lg:row-span-2 lg:row-start-1">
+        <a [routerLink]="'/products/brand/Puma'" class="group relative block">
+          <img
+            src="https://img.freepik.com/vector-gratis/cuatro-pies-pie-circulo-neon_1262-21540.jpg?w=740&t=st=1720620595~exp=1720621195~hmac=2703cae0edee5cb4f2e36d47e4f25b084710e3d343123f928f99dd892705f681"
+            alt=""
+            class="aspect-square w-full object-cover transition duration-500 group-hover:opacity-90"
+          />
+
+          <div
+            class="absolute inset-0 flex flex-col items-start justify-end p-6"
+          >
+            <h3 class="text-xl font-medium text-white">Puma</h3>
+
+            <span
+              class="mt-1.5 inline-block bg-black px-5 py-3 text-xs hover:bg-red-700 focus:outline-none focus:ring focus:ring-yellow-400font-medium uppercase tracking-wide text-white"
+            >
+              Shop Now
+            </span>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>

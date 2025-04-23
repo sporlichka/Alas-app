@@ -1,0 +1,225 @@
+<nav class="w-full z-30 top-0 py-5">
+  <div
+    class="flex items-center justify-between ml-5 mr-5 space-x-2 md:space-x-4 flex-col md:flex-row"
+  >
+    <a
+      class="flex items-center no-underline hover:no-underline font-bold text-gray-800"
+      [routerLink]="'/'"
+    >
+      <img
+        src="https://st3.depositphotos.com/1020091/12754/v/450/depositphotos_127542692-stock-illustration-tennis-sneaker-icon.jpg"
+        alt="Zapatilla"
+        class="h-12 w-12 md:h-16 md:w-16"
+      />
+      <p
+        class="hidden md:block text-lg md:text-xl lg:text-2xl font-bold font-serif italic text-black ml-2 shadow-lg"
+      >
+        Full Store, We Move
+      </p>
+      <p
+        class="md:hidden text-lg font-bold font-serif italic text-black mt-2 text-center"
+      >
+        Full Store, We Move
+      </p>
+    </a>
+    @if (!isMenuOpen) {
+    <div
+      class="order-2 md:order-3 flex items-center mt-3 space-x-10 md:space-x-5"
+    >
+      @if (isLogged) {<app-logout></app-logout>} @else {
+      <a
+        class="flex items-center no-underline hover:text-black"
+        [routerLink]="'/login'"
+      >
+        <svg
+          class="fill-current hover:text-black"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+        >
+          <circle fill="none" cx="12" cy="7" r="3" />
+          <path
+            d="M12 2C9.243 2 7 4.243 7 7s2.243 5 5 5 5-2.243 5-5S14.757 2 12 2zM12 10c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3S13.654 10 12 10zM21 21v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h2v-1c0-2.757 2.243-5 5-5h4c2.757 0 5 2.243 5 5v1H21z"
+          />
+        </svg> </a
+      >} @if (isLogged && !isAdmin) {
+      <a
+        class="flex items-center no-underline hover:text-black relative cursor-pointer pl-1"
+        (click)="toggleCart()"
+      >
+        <svg
+          class="fill-current hover:text-black"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M21,7H7.462L5.91,3.586C5.748,3.229,5.392,3,5,3H2v2h2.356L9.09,15.414C9.252,15.771,9.608,16,10,16h8 c0.4,0,0.762-0.238,0.919-0.606l3-7c0.133-0.309,0.101-0.663-0.084-0.944C21.649,7.169,21.336,7,21,7z M17.341,14h-6.697L8.371,9 h11.112L17.341,14z"
+          />
+          <circle cx="10.5" cy="18.5" r="1.5" />
+          <circle cx="17.5" cy="18.5" r="1.5" />
+        </svg>
+        @if (isCartOpen) {
+        <div>
+          <app-cart-popup></app-cart-popup>
+        </div>
+        } </a
+      >} @if (isLogged && !isAdmin) {
+      <a
+        class="flex items-center no-underline hover:text-black pl-1"
+        [routerLink]="'/user'"
+      >
+        <svg
+          class="fill-current hover:text-black mr-2"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="black"
+            stroke-width="2"
+            fill="none"
+          />
+          <path
+            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+          />
+        </svg>
+        <span class="text-xs">My Account</span> </a
+      >} @if (isLogged && isAdmin) {
+      <a
+        class="flex items-center no-underline hover:text-black pl-1"
+        [routerLink]="'/admin'"
+      >
+        <svg
+          class="fill-current hover:text-black mr-2"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M3 3h8v8H3V3zm2 2v4h4V5H5zm10-2h8v8h-8V3zm2 2v4h4V5h-4zm-2 10h8v8h-8v-8zm2 2v4h4v-4h-4zM3 13h8v8H3v-8zm2 2v4h4v-4H5z"
+          />
+        </svg>
+        <span class="text-xs">Admin Panel</span> </a
+      >}
+    </div>
+
+    }
+  </div>
+
+  <app-shoe-divider></app-shoe-divider>
+  <div
+    class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-1 py-3"
+  >
+    <label for="menu-toggle" class="cursor-pointer md:hidden block">
+      <svg
+        class="fill-current text-gray-900"
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+      >
+        <title>menu</title>
+        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+      </svg>
+    </label>
+
+    <input
+      class="hidden"
+      type="checkbox"
+      id="menu-toggle"
+      (click)="toggleMenu()"
+    />
+
+    <div
+      class="hidden md:flex md:items-center md:w-auto w-full order-2 md:order-2"
+      [ngClass]="{ block: isMenuOpen, hidden: !isMenuOpen }"
+    >
+      <nav>
+        <ul
+          class="md:flex items-center justify-between text-xl font-bold text-black pt-4 md:pt-0"
+        >
+          <li>
+            <a
+              class="text-sm md:text-base lg:text-xl inline-block no-underline hover:text-black hover:underline py-2 px-3"
+              (click)="closeMenu()"
+              [routerLink]="'/products/'"
+              >Shop</a
+            >
+          </li>
+          <li>
+            <a
+              class="text-sm md:text-base lg:text-xl inline-block no-underline hover:text-black hover:underline py-2 px-3"
+              (click)="closeMenu()"
+              [routerLink]="'/contact-page'"
+              >Contact</a
+            >
+          </li>
+          <li>
+            <a
+              class="text-sm md:text-base lg:text-xl inline-block no-underline hover:text-black hover:underline py-2 px-3"
+              (click)="closeMenu()"
+              [routerLink]="'/products/brand/Nike'"
+              >Nike</a
+            >
+          </li>
+          <li>
+            <a
+              class="text-sm md:text-base lg:text-xl inline-block no-underline hover:text-black hover:underline py-2 px-3"
+              (click)="closeMenu()"
+              [routerLink]="'/products/brand/Adidas'"
+              >Adidas</a
+            >
+          </li>
+          <li>
+            <a
+              class="text-sm md:text-base lg:text-xl inline-block no-underline hover:text-black hover:underline py-2 px-3"
+              (click)="closeMenu()"
+              [routerLink]="'/products/brand/Puma'"
+              >Puma</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</nav>
+
+@if (isBannerVisible) {
+<div
+  class="flex items-center justify-between gap-4 bg-black px-4 py-3 text-white"
+>
+  <p class="text-sm font-medium">
+    Love this shop ?
+    <a routerLink="/random-product" class="inline-block underline"
+      >Check out this new model!</a
+    >
+  </p>
+
+  <button
+    aria-label="Dismiss"
+    class="shrink-0 rounded-lg bg-black/10 p-1 transition hover:bg-black/20"
+    (click)="closeBanner()"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-5 w-5"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+        clip-rule="evenodd"
+      />
+    </svg>
+  </button>
+</div>
+}

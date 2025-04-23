@@ -1,0 +1,110 @@
+<section>
+  <div class="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+    <div
+      class="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:items-center lg:gap-x-16"
+    >
+      <div
+        class="mx-auto max-w-lg text-center lg:mx-0 ltr:lg:text-left rtl:lg:text-right"
+      >
+        <h2 class="text-3xl font-bold sm:text-4xl">User Account</h2>
+
+        <p class="mt-4 text-gray-600">
+          Welcome to your account dashboard. Here, you can manage your personal
+          information, review your purchase history, and stay updated with your
+          messages and notifications. Navigate easily to ensure your profile and
+          preferences are always up to date.
+        </p>
+
+        <a
+          routerLink="/home"
+          class="mt-8 inline-block roundedborder bg-black border-gray-600 px-5 py-3 text-sm transition hover:bg-red-700 focus:outline-none focus:ring focus:ring-yellow-400 font-medium tracking-wide text-white"
+        >
+          Lets Shop!!
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
+        <a
+          class="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:ring-red-500 focus:ring"
+          routerLink="/user/purchase-history"
+        >
+          <span class="inline-block rounded-lg bg-gray-50 p-3">
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M21,7H7.462L5.91,3.586C5.748,3.229,5.392,3,5,3H2v2h2.356L9.09,15.414C9.252,15.771,9.608,16,10,16h8 c0.4,0,0.762-0.238,0.919-0.606l3-7c0.133-0.309,0.101-0.663-0.084-0.944C21.649,7.169,21.336,7,21,7z M17.341,14h-6.697L8.371,9 h11.112L17.341,14z"
+              />
+            </svg>
+          </span>
+
+          <h2 class="mt-2 font-bold">Purchase History</h2>
+
+          <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
+            View your past purchases, track order statuses, and manage returns
+            or exchanges. Keep all your purchase details at your fingertips.
+          </p>
+        </a>
+
+        <a
+          class="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:ring-red-500 focus:ring"
+          routerLink="/user/user-update"
+        >
+          <span class="inline-block rounded-lg bg-gray-50 p-3">
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+              />
+            </svg>
+          </span>
+
+          <h2 class="mt-2 font-bold">User Information</h2>
+
+          <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
+            Modify your personal details, update contact information, and change
+            your password. Ensure your profile reflects your current
+            information.
+          </p>
+        </a>
+        <a
+          class="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:ring-red-500 focus:ring"
+          routerLink="/user/mesagge-user"
+        >
+          <span class="inline-block rounded-lg bg-gray-50 p-3">
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+              />
+            </svg>
+          </span>
+
+          <h2 class="mt-2 font-bold">Mesagges, Notificactions</h2>
+
+          <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
+            Submit any issues or complaints you might have and leave messages
+            for customer support. We're here to assist you and resolve any
+            concerns.
+          </p>
+        </a>
+      </div>
+    </div>
+  </div>
+  <app-shoe-divider></app-shoe-divider>
+  <router-outlet></router-outlet>
+</section>

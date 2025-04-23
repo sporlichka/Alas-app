@@ -1,0 +1,19 @@
+.footer-links {
+    flex-wrap: wrap;
+    justify-content: flex-end; /* Alinea los elementos a la derecha */
+  }
+  
+  .footer-links li {
+    width: 50%; /* Controla el ancho de cada elemento de la lista */
+  }
+  
+  .footer-links a {
+    display: block;
+    padding-bottom: 0.25rem;
+    font-size: 0.875rem;
+  }
+  
+  .footer-links svg {
+    vertical-align: middle;
+  }
+  

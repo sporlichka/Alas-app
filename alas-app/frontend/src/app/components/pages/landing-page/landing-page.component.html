@@ -1,0 +1,146 @@
+@if (isModalOpen) {
+<section
+  class="relative overflow-hidden rounded-lg shadow-2xl md:grid md:grid-cols-3"
+>
+  <img
+    alt=""
+    src="https://images.unsplash.com/photo-1611510338559-2f463335092c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80"
+    class="h-64 w-full object-cover md:h-auto md:w-3/4"
+  />
+
+  <div class="p-4 text-center sm:p-6 md:col-span-2 lg:p-8 relative">
+    <button
+      aria-label="Dismiss"
+      class="absolute top-4 right-4 shrink-0 rounded-lg bg-black/10 p-1 transition hover:bg-black/20"
+      (click)="closeModal()"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+          clip-rule="evenodd"
+        />
+      </svg>
+    </button>
+
+    <p class="text-sm font-semibold uppercase tracking-widest">Lets Shop</p>
+
+    <h2 class="mt-6 font-black uppercase">
+      <span class="text-4xl font-black sm:text-4xl lg:text-4xl">
+        Get 20% off
+      </span>
+      <span class="mt-2 block text-sm">On your next order over $50</span>
+    </h2>
+
+    <a
+      class="mt-8 inline-block w-full bg-black hover:bg-red-700 focus:outline-none focus:ring focus:ring-yellow-400 py-4 text-sm font-bold uppercase tracking-widest text-white"
+      routerLink="/random-product"
+    >
+      Get Discount
+    </a>
+
+    <p class="mt-8 text-xs font-medium uppercase text-gray-400">
+      Offer valid until 30th October, 2024 *
+    </p>
+  </div>
+</section>
+} @if (isAsideOpen) {
+<aside
+  class="fixed bottom-4 start-4 sm:start-6 md:start-8 lg:start-10 z-50 flex items-center justify-between gap-2 rounded-lg bg-black px-3 py-2 text-white text-xs"
+>
+  <a
+    routerLink="/random-product"
+    target="_blank"
+    rel="noreferrer"
+    class="text-sm font-medium hover:opacity-75"
+  >
+    Hey! Come Check This Out 👋
+  </a>
+
+  <button
+    class="rounded bg-white/20 p-1 hover:bg-white/10"
+    (click)="closeAside()"
+  >
+    <span class="sr-only">Close</span>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-4 w-4"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+    >
+      <path
+        fillRule="evenodd"
+        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+        clipRule="evenodd"
+      />
+    </svg>
+  </button>
+</aside>
+}
+
+<section
+  class="overflow-hidden bg-[url(https://img.freepik.com/foto-gratis/zapatilla-deporte-colores-pintando-pintura-aerosol-color-purpura_123827-23438.jpg?size=626&ext=jpg)] bg-center bg-cover bg-no-repeat"
+>
+  <div class="bg-black/50 p-8 md:p-12 lg:px-16 lg:py-24">
+    <div class="text-center ltr:sm:text-left rtl:sm:text-right">
+      <h2 class="text-2xl font-bold text-white sm:text-3xl md:text-5xl">
+        Latest Shoes
+      </h2>
+
+      <p
+        class="hidden max-w-lg text-white/90 md:mt-6 md:block md:text-lg md:leading-relaxed"
+      >
+        Step into the future with our cutting-edge sneakers. Designed with sleek
+        lines and advanced materials, these modern kicks offer unparalleled
+        style and comfort for every stride.
+      </p>
+
+      <div class="mt-4 sm:mt-8">
+        <a
+          routerLink="/products"
+          class="inline-block rounded-full bg-black px-12 py-3 text-sm font-medium text-white transition hover:bg-red-700 focus:outline-none focus:ring focus:ring-yellow-400"
+        >
+          Get Yours Today
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-carousel></app-carousel>
+
+<section
+  class="overflow-hidden bg-[url(https://img.freepik.com/foto-gratis/ilustracion-calzado-deportivo-sobre-fondo-azul-generado-ia_188544-19603.jpg?w=1380&t=st=1720619846~exp=1720620446~hmac=c3c9abe9bd869c4c34ba10f563ad4725250fe2a24c598df070a98b49adff834d)] bg-center bg-cover bg-no-repeat"
+>
+  <div class="bg-black/50 p-8 md:p-12 lg:px-16 lg:py-24">
+    <div class="text-center ltr:sm:text-left rtl:sm:text-right">
+      <h2 class="text-2xl font-bold text-white sm:text-3xl md:text-5xl">
+        Best Shoes
+      </h2>
+
+      <p
+        class="hidden max-w-lg text-white/90 md:mt-6 md:block md:text-lg md:leading-relaxed"
+      >
+        Step into the future with our cutting-edge sneakers. Designed with sleek
+        lines and advanced materials, these modern kicks offer unparalleled
+        style and comfort for every stride.
+      </p>
+
+      <div class="mt-4 sm:mt-8">
+        <a
+          routerLink="/products"
+          class="inline-block rounded-full bg-black px-12 py-3 text-sm font-medium text-white transition hover:bg-red-700 focus:outline-none focus:ring focus:ring-yellow-400"
+        >
+          Get Yours Today
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-collections></app-collections>
